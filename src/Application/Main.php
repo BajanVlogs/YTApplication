@@ -7,9 +7,7 @@ use pocketmine\plugin\{PluginBase, Plugin};
 use pocketmine\event\Listener;
 use pocketmine\utils\Config;
 use pocketmine\player\Player;
-use pocketmine\form\Form;
-use pocketmine\form\CustomForm;
-use pocketmine\Server;
+use Jojoe77777\FormAPI\CustomForm;
 
 class Main extends PluginBase implements Listener{
 
@@ -47,10 +45,9 @@ class Main extends PluginBase implements Listener{
             $this->sendDiscordLog($data[0], $data[1], $data[2]);
         });
         $form->setTitle("§cYouTube §rApplication");
-        $form->addInput("§8* §cEnter Channel Name Below\n§8* §cThen Select Number of Subscribers\n§8* §cThen Select Number of Views\n\n§cNote: §aIf You Write Offensive Content You Will Be Banned\n\n§cNote: §cIf You Can't Select Your Subscribers or Views, Try to Select the Nearest One", "§7Enter Channel Name Here");
+        $form->addInput("§8* §cEnter Channel Name Below\n§8* §cThen Select Number of Subscribers\n§8* §cThen Select Number of Views\n\n§cNote: §aIf You Write Offensive Content You Will Be Banned\n\n§cNote: §cIf You Can't Select Your Subscribers or Views, Try to Select the Nearest One");
         $form->addSlider("Subscribers", 1, 1000);
         $form->addSlider("Views", 1, 1000);
-        $form->addLabel("");
         $player->sendForm($form);
     }
 
