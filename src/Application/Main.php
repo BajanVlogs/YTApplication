@@ -9,6 +9,7 @@ use pocketmine\utils\Config;
 use pocketmine\player\Player;
 use pocketmine\form\Form;
 use pocketmine\form\CustomForm;
+use pocketmine\Server;
 
 class Main extends PluginBase implements Listener{
 
@@ -35,7 +36,7 @@ class Main extends PluginBase implements Listener{
     }
 
     public function applicationForm(Player $player) {
-        $form = $this->getServer()->getPluginManager()->getPlugin("FormAPI")->createCustomForm(function (Player $player, ?array $data = null) {
+        $form = new CustomForm(function (Player $player, ?array $data = null) {
             if($data === null) return;
             $config = new Config($this->getDataFolder() . "/ytapplication/" . $player->getName() . ".yml", Config::YAML);
             $config->set("ytapplication",["Channel: " . $data[0], "Subscribers: " . $data[1], "Views: " . $data[2]]);
@@ -50,7 +51,7 @@ class Main extends PluginBase implements Listener{
         $form->addSlider("Subscribers", 1, 1000);
         $form->addSlider("Views", 1, 1000);
         $form->addLabel("");
-        $form->sendToPlayer($player);
+        $player->sendForm($form);
     }
 
     // Function to send log to Discord
