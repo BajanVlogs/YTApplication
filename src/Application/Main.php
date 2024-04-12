@@ -7,6 +7,7 @@ use pocketmine\plugin\{PluginBase, Plugin};
 use pocketmine\event\Listener;
 use pocketmine\utils\Config;
 use pocketmine\player\Player;
+use pocketmine\form\FormValidationException;
 use jojoe77777\FormAPI\CustomForm;
 
 class Main extends PluginBase implements Listener{
