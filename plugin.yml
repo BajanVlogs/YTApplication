@@ -4,7 +4,5 @@ api: [5.0.0]
 author: BajanVlogs
 main: Application\Main
 description: A plugin for handling YouTube applications via Discord webhook.
-commands:
-  ytapplication:
-    description: Opens the YouTube application form.
-    usage: /ytapplication
+depend:
+  - FormAPI
